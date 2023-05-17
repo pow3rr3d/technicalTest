@@ -1,2 +1,10 @@
 # technicalTest
-For a recruitment
+
+You'r free to setuping up this project on the env you like.
+
+In this project you will find: 
+- a login page
+- a post login page
+- a user crud
+
+This project is based on Symfony in V6. 
