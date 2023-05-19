@@ -3,6 +3,11 @@
 {% block title %}Hello World{% endblock %}
 
 {% block body %}
-    <h2>Homepage</h2>
+    <h2>Bienvenue dans votre espace personnel {{ user.firstName }} {{ user.lastName }}</h2>
 
-{% endblock %}
+    {% if 'ROLE_ADMIN' in  user.roles %} <a href="/admin/user"> Manage Users </a> {% endif %}
+    <a href="/logout"> Logout </a>
+    {% if is_granted('IS_IMPERSONATOR') %}
+        <a href="{{ impersonation_exit_path(path('dashboard_index') ) }}">Exit impersonation</a>
+    {% endif %}
+{% endblock %} 
