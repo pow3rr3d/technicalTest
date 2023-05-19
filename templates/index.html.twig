@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello World{% endblock %}
+{% block title %}{% trans from "translate" %}welcome{% endtrans %}{% endblock %}
 
 {% block body %}
-    <h2>Bienvenue dans votre espace personnel {{ user.firstName }} {{ user.lastName }}</h2>
-
-    {% if 'ROLE_ADMIN' in  user.roles %} <a href="/admin/user"> Manage Users </a> {% endif %}
-    <a href="/logout"> Logout </a>
+    <h2>{% trans from "translate" %}welcome_message{% endtrans %} {{ user.firstName|capitalize }} {{ user.lastName|upper }}</h2>
+    
+    {% if 'ROLE_ADMIN' in  user.roles %} <a href="/admin/user"> {% trans from "translate" %}manage_users{% endtrans %} </a> {% endif %}
+    <a href="/logout"> {% trans from "translate" %}logout{% endtrans %} </a>
     {% if is_granted('IS_IMPERSONATOR') %}
-        <a href="{{ impersonation_exit_path(path('dashboard_index') ) }}">Exit impersonation</a>
+        <a href="{{ impersonation_exit_path(path('dashboard_index') ) }}">{% trans from "translate" %}exit_impersonation{% endtrans %} </a>
     {% endif %}
 {% endblock %} 

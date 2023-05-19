@@ -27,7 +27,8 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
-                'label' => 'agreeTerms',
+                'label' => 'agree_terms',
+                'translation_domain' => 'translate', 
                 'constraints' => [
                     new IsTrue([
                         'message' => 'You should agree to our terms.',
@@ -35,13 +36,17 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('firstName', TextType::class, [
-                'label' => 'First Name',
+                'label' => 'first_name',
+                'translation_domain' => 'translate', 
             ])
             ->add('lastName', TextType::class, [
-                'label' => 'Last Name',
+                'label' => 'last_name',
+                'translation_domain' => 'translate', 
             ])
             ->add('local', EntityType::class, [
                 'class' => Local::class,
+                'label' => 'language',
+                'translation_domain' => 'translate', 
                 'query_builder' => function (LocalRepository $er) {
                     return $er->createQueryBuilder('u')
                         ->orderBy('u.id', 'ASC');
@@ -52,6 +57,8 @@ class RegistrationFormType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
+                'label' => 'plain_password',
+                'translation_domain' => 'translate', 
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([

@@ -1,22 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}{% trans from "translate" %}user_index{% endtrans %}{% endblock %}
 
 {% block body %}
-<a href="/dashboard"> Dashboard </a>
+<a href="/dashboard">{% trans from "translate" %}dashboard{% endtrans %} </a>
 
-    <h1>User index</h1>
+    <h1>{% trans from "translate" %}user_index{% endtrans %}</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>{% trans from "translate" %}id{% endtrans %}</th>
                 <th>Email</th>
-                <th>Roles</th>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>IsVerified</th>
-                <th>actions</th>
+                <th>{% trans from "translate" %}first_name{% endtrans %}</th>
+                <th>{% trans from "translate" %}last_name{% endtrans %}</th>
+                <th>{% trans from "translate" %}is_verified{% endtrans %}</th>
+                <th>{% trans from "translate" %}actions{% endtrans %}</th>
             </tr>
         </thead>
         <tbody>
@@ -24,24 +23,34 @@
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>{{ user.firstName }}</td>
                 <td>{{ user.lastName }}</td>
-                <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
+                <td> 
+                    {% if user.isVerified %} 
+                        {% trans from "translate" %}yes{% endtrans %} 
+                    {% else %} 
+                        {% trans from "translate" %}no{% endtrans %} 
+                    {% endif %}
+                </td>
                 <td>
-                    <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
-                    <a href="/admin/user/{{user.id}}/roles">convert as {% if 'ROLE_ADMIN' in  user.roles %}  user {% else %} admin {% endif %}</a> 
-                    {% if 'ROLE_ADMIN' in  app.user.roles and app.user.id is not same as user.id %} <a href="/dashboard?_switch_user={{user.email}}">login as</a> {% endif %}
+                    <a href="{{ path('app_user_show', {'id': user.id}) }}">{% trans from "translate" %}show{% endtrans %}</a>
+                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">{% trans from "translate" %}edit{% endtrans %}</a>
+                    <a href="/admin/user/{{user.id}}/roles"> 
+                        {% if 'ROLE_ADMIN' in  user.roles %}  
+                            {% trans from "translate" %}convert_as.user{% endtrans %}
+                        {% else %} 
+                            {% trans from "translate" %}convert_as.admin {% endtrans %}
+                        {% endif %}</a> 
+                    {% if 'ROLE_ADMIN' in  app.user.roles and app.user.id is not same as user.id %} <a href="/dashboard?_switch_user={{user.email}}">{% trans from "translate" %}login_as{% endtrans %}</a> {% endif %}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8"> {% trans from "translate" %}no_record{% endtrans %}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_new') }}">Create new</a>
+    <a href="{{ path('app_user_new') }}"> {% trans from "translate" %}create_new{% endtrans %}</a>
 {% endblock %}
