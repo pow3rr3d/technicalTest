@@ -3,6 +3,8 @@
 {% block title %}Hello World{% endblock %}
 
 {% block body %}
-    <h2>Homepage</h2>
+    <h2>Bienvenue dans votre espace personnel {{ user.firstName }} {{ user.lastName }}</h2>
 
-{% endblock %}
+{% if 'ROLE_ADMIN' in  user.roles %} <a href="/admin/user"> Manage Users </a> {% endif %}
+<a href="/logout"> Logout </a>
+{% endblock %} 
