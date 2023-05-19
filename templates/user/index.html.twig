@@ -34,6 +34,7 @@
                     <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
                     <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
                     <a href="/admin/user/{{user.id}}/roles">convert as {% if 'ROLE_ADMIN' in  user.roles %}  user {% else %} admin {% endif %}</a> 
+                    {% if 'ROLE_ADMIN' in  app.user.roles and app.user.id is not same as user.id %} <a href="/dashboard?_switch_user={{user.email}}">login as</a> {% endif %}
                 </td>
             </tr>
         {% else %}
