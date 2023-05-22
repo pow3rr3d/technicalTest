@@ -16,6 +16,9 @@ class Local
     #[ORM\Column(length: 255)]
     private ?string $label = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $code = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +32,18 @@ class Local
     public function setLabel(string $label): self
     {
         $this->label = $label;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
 
         return $this;
     }
