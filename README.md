@@ -11,7 +11,7 @@ This project is based on Symfony in V6.
 
 **Fixtures**
 Admin role credentials:
-   admin@email.com/admin
+   admin@email.com/admin 
 
-User role credentials:
-   user@email.com/user
+User role credentials: 
+   user@email.com/user 
