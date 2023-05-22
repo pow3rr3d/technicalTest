@@ -5,7 +5,19 @@
 {% block body %}
     <h1>{% trans from "translate" %}user{% endtrans %}</h1>
 
-    <table class="table">
+    <div class="d-flex w-100 justify-content-start btn-wrapper"> 
+        <a class="btn custom-btn" href="{{ path('app_user_index') }}">{% trans from "translate" %}back_to_list{% endtrans %}</a>
+
+        <a class="btn custom-btn" href="{{ path('app_user_edit', {'id': user.id}) }}">{% trans from "translate" %}edit{% endtrans %}</a>
+
+        {% if user.id is not same as app.user.id %}
+            {{ include('user/_delete_form.html.twig') }}
+            {{ include('user/_modal_delete.html.twig') }}
+        {% endif %}
+    </div>
+   
+
+    <table class="table table-hover table-responsive">
         <tbody>
             <tr>
                 <th>{% trans from "translate" %}id{% endtrans %}</th>
@@ -46,9 +58,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_index') }}">{% trans from "translate" %}back_to_list{% endtrans %}</a>
 
-    <a href="{{ path('app_user_edit', {'id': user.id}) }}">{% trans from "translate" %}edit{% endtrans %}</a>
 
-    {{ include('user/_delete_form.html.twig') }}
 {% endblock %}

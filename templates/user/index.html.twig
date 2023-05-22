@@ -3,11 +3,16 @@
 {% block title %}{% trans from "translate" %}user_index{% endtrans %}{% endblock %}
 
 {% block body %}
-<a href="/dashboard">{% trans from "translate" %}dashboard{% endtrans %} </a>
-
     <h1>{% trans from "translate" %}user_index{% endtrans %}</h1>
 
-    <table class="table">
+    <br>
+
+    <div class="d-flex w-100 justify-content-start btn-wrapper"> 
+        <a class="btn custom-btn" href="{{ path('app_user_new') }}"> {% trans from "translate" %}create_new{% endtrans %}</a>
+    </div>
+
+
+    <table class="table table-hover table-responsive">
         <thead>
             <tr>
                 <th>{% trans from "translate" %}id{% endtrans %}</th>
@@ -33,15 +38,19 @@
                     {% endif %}
                 </td>
                 <td>
-                    <a href="{{ path('app_user_show', {'id': user.id}) }}">{% trans from "translate" %}show{% endtrans %}</a>
-                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">{% trans from "translate" %}edit{% endtrans %}</a>
+                    <a href="{{ path('app_user_show', {'id': user.id}) }}"> <i class="fa fa-eye" title="{% trans from "translate" %}show{% endtrans %}"></i> </a>
+                    <a href="{{ path('app_user_edit', {'id': user.id}) }}"><i class="fas fa-pen" {% trans from "translate" %}edit{% endtrans %}"></i> </a>
                     <a href="/admin/user/{{user.id}}/roles"> 
-                        {% if 'ROLE_ADMIN' in  user.roles %}  
-                            {% trans from "translate" %}convert_as.user{% endtrans %}
-                        {% else %} 
-                            {% trans from "translate" %}convert_as.admin {% endtrans %}
+                        {% if 'ROLE_ADMIN' in user.roles and app.user.id is not same as user.id %}  
+                           <i class="fas fa-user" title="{% trans from "translate" %}convert_as.user{% endtrans %}"></i> 
+                        {% elseif app.user.id is not same as user.id %} 
+                           <i class="fas fa-user-tie" title="{% trans from "translate" %}convert_as.admin {% endtrans %}"></i> 
                         {% endif %}</a> 
-                    {% if 'ROLE_ADMIN' in  app.user.roles and app.user.id is not same as user.id %} <a href="/dashboard?_switch_user={{user.email}}">{% trans from "translate" %}login_as{% endtrans %}</a> {% endif %}
+                    {% if 'ROLE_ADMIN' in app.user.roles and app.user.id is not same as user.id %} 
+                        <a href="/dashboard?_switch_user={{user.email}}">
+                            <i class="fas fa-sign-in-alt" title="{% trans from "translate" %}login_as{% endtrans %}"></i>
+                        </a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -52,5 +61,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_new') }}"> {% trans from "translate" %}create_new{% endtrans %}</a>
 {% endblock %}

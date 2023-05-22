@@ -5,7 +5,9 @@
 {% block body %}
     <h1>{% trans from "translate" %}create_new{% endtrans %}</h1>
 
-    {{ include('user/_form.html.twig') }}
+    <div class="d-flex w-100 justify-content-start btn-wrapper"> 
+        <a class="btn custom-btn" href="{{ path('app_user_index') }}">{% trans from "translate" %}back_to_list{% endtrans %}</a>
+    </div>
 
-    <a href="{{ path('app_user_index') }}">{% trans from "translate" %}back_to_list{% endtrans %}</a>
+    {{ include('user/_form.html.twig') }}
 {% endblock %}

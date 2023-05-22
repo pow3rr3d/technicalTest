@@ -29,3 +29,6 @@ user: "User"
 register: "Register"
 agree_terms: "Agree terms"
 sign_in: Connect
+cancel: "Cancel"
+account: "My account"
+Update: "Update"
