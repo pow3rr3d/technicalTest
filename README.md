@@ -8,3 +8,10 @@ In this project you will find:
 - a user crud
 
 This project is based on Symfony in V6. 
+
+**Fixtures**
+Admin role credentials:
+   admin@email.com/admin
+
+User role credentials:
+   user@email.com/user
