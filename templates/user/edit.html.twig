@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans from "translate" %}edit_user{% endtrans %}{% endblock %}
+
+{% block body %}
+    <h1>{% trans from "translate" %}edit_user{% endtrans %}</h1>
+
+    <div class="d-flex w-100 justify-content-start btn-wrapper"> 
+        {% if 'ROLE_ADMIN' in  app.user.roles %} 
+            <a class="btn custom-btn" href="{{ path('app_user_index') }}">{% trans from "translate" %}back_to_list{% endtrans %}</a>
+        {% endif %}
+        
+         {% if user.id is not same as app.user.id %}
+            {{ include('user/_delete_form.html.twig') }}
+            {{ include('user/_modal_delete.html.twig') }}
+        {% endif %}
+    </div>
+    {{ include('user/_form.html.twig', {'button_label': 'Update'|trans({}, 'translate')}) }}
+
+
+
+{% endblock %}

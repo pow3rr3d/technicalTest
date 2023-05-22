@@ -1,0 +1,9 @@
+{# <form method="post" action="{{ path('app_user_delete', {'id': user.id}) }}" onsubmit="return confirm('delete_message');"> #}
+    {# <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}"> #}
+    {# <button class="btn btn-danger">{% trans from "translate" %}delete{% endtrans %}</button> #}
+{# </form> #}
+
+<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+<button class="btn btn-danger" data-bs-toggle="modal"
+        data-bs-target="#modal_delete{{ user.id }}">{% trans from "translate" %}delete{% endtrans %}
+</button>

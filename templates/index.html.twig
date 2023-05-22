@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans from "translate" %}welcome{% endtrans %}{% endblock %}
+
+{% block body %}
+    <h1>{% trans from "translate" %}welcome_message{% endtrans %} {{ user.firstName|capitalize }} {{ user.lastName|upper }}</h2>
+    
+{% endblock %} 
