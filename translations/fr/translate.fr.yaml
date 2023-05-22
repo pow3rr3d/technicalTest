@@ -33,3 +33,5 @@ user: "Utilisateur"
 register: "Créer un compte"
 agree_terms: "Accepter les conditions"
 sign_in: Connexion
+cancel: "Annuler"
+account: "Mon compte"

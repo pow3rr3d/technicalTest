@@ -10,9 +10,9 @@ use App\Entity\Local;
 
 class AppFixtures extends Fixture
 {
-    public function __construct(UserPasswordHasherInterface $passwordEncoder)
+    public function __construct(UserPasswordHasherInterface $userPasswordHasher)
     {
-        $this->passwordEncoder = $passwordEncoder;
+        $this->userPasswordHasher = $userPasswordHasher;
     }
 
     public function load(ObjectManager $manager): void
@@ -35,8 +35,8 @@ class AppFixtures extends Fixture
 
         $admin->setEmail('admin@email.com')
               ->setRoles(['ROLE_ADMIN'])
-              ->setPasswoord($this->userPasswordHasher->hashPassword($admin, 'admin'))
-              ->setlocale($frLocale)
+              ->setPassword($this->userPasswordHasher->hashPassword($admin, 'admin'))
+              ->setlocal($frLocale)
               ->setFirstName('Admin')
               ->setLastName('Admin')
               ->setIsVerified(true);
@@ -45,8 +45,8 @@ class AppFixtures extends Fixture
 
         $user->setEmail('user@email.com')
               ->setRoles([])
-              ->setPasswoord($this->userPasswordHasher->hashPassword($user, 'user'))
-              ->setlocale($enLocale)
+              ->setPassword($this->userPasswordHasher->hashPassword($user, 'user'))
+              ->setlocal($enLocale)
               ->setFirstName('User')
               ->setLastName('User')
               ->setIsVerified(false);

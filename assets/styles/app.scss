@@ -1,0 +1,143 @@
+
+
+/* BASE */
+
+.modal-header{
+    background-color: #001524;
+    color: #75DBCD !important;
+}
+
+.fa-user-circle{
+    color: #75DBCD;
+}
+
+.right {
+    right: 75px;
+    position: absolute !important;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.navbar {
+    padding: 15px;
+    background-color: #001524;
+
+    .nav-link {
+        color: #75DBCD !important;
+        font-weight: 600;
+    }
+
+    .dropdown-menu {
+        background-color: #001524;
+        padding: 15px;
+        font-weight: 600;
+
+        a {
+            color: #75DBCD !important;
+        }
+    }
+}
+
+
+i{
+    color: #001524;
+}
+
+table {
+    margin-top: 50px !important;
+    width: 75% !important;
+    margin: auto;
+    text-align: center;
+
+    thead {
+        background-color: #001524;
+        color: #75DBCD !important;
+        font-weight: 600;
+        
+        th{
+            border: none;
+        }
+    }
+}
+
+h1 {
+    text-align: center;
+    color: #001524;
+    font-weight: 600 !important;
+}
+
+.btn-wrapper{
+    width: 38%;
+
+    .btn{
+        margin-left: 15px;
+    }
+}
+
+.custom-btn{
+    text-decoration: none;
+    color: #75DBCD !important;
+    background-color: #001524 !important;
+    font-weight: 600;
+    padding: 5px;
+}
+
+li{
+    list-style: none;
+}
+/*LOGIN CONFIGURATION PAGE*/
+
+#htmlLogin {
+background-image: url("../img/background.png");
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+padding-bottom: 428px;
+
+#bodyLogin {
+    background: none;
+    }
+
+.registration{
+    text-align: center;
+}
+.login-wrap {
+    padding: 20px;
+}
+
+.login-wrap .registration {
+    text-align: center;
+}
+.login-social-link {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.form-login {
+    max-width: 500px;
+    margin: 100px auto 0;
+    background: #fff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 50px;
+
+    h2.form-login-heading {
+        margin: 0;
+        padding: 25px 20px;
+        text-align: center;
+        background: #4ecdc4;
+        border-radius: 5px 5px 0 0;
+        -webkit-border-radius: 5px 5px 0 0;
+        color: #fff;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 300;
+    }
+}
+
+
+}
+

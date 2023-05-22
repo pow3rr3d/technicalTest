@@ -52,11 +52,6 @@ class UserType extends AbstractType
                 'label' => 'last_name',
                 'translation_domain' => 'translate', 
             ])
-            ->add('isVerified', CheckboxType::class, [
-                'required' => false,
-                'label' => 'is_verified',
-                'translation_domain' => 'translate', 
-                ])
             ->add('local', EntityType::class, [
                 'label' => 'language',
                 'translation_domain' => 'translate', 
